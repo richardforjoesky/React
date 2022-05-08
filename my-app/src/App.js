@@ -1,7 +1,7 @@
 import ExpenseList from "./components/ExpenseList/ExpenseList";
-
+import NewExpense from "./components/NewExpense/NewExpense";
 function App() {
-  const expenses = [
+  let expenses = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -23,10 +23,22 @@ function App() {
     },
   ];
 
+
+  const addExpenseHandler = (expense) => {
+    const expenseData = {
+        ...expense,
+    };
+    console.log('In App.js');
+    console.log(expenseData);
+    expenses.push(expenseData);
+    console.log(expenses);
+}
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <ExpenseList
+      <h2>Let us get started</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      
+      <ExpenseList 
         items={expenses}
       ></ExpenseList>
     </div>
