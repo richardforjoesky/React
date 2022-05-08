@@ -37,3 +37,7 @@ jobs:
         run: |
           cd my-app
           yarn build
+      - name: build
+        run: |
+          cd my-app
+          yarn test
